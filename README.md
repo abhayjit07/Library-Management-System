@@ -56,3 +56,82 @@ The Library Management System is a Java Swing-based application that allows user
    - Provides a clear distinction between admin and regular user interfaces.
    - Admins can access advanced functionalities without cluttering the user interface.
    - Enhances security by restricting access to administrative features to authorized personnel.
+
+A Java Swing-based library management system with a MySQL database.
+
+## Usage
+
+1. Launch the application.
+
+2. Enter your MySQL username and password.
+ ![image](https://github.com/abhayjit07/Library-Management-System/assets/100589347/c07877dc-801b-40e4-9a5b-fc39fe3d30b1)
+
+
+3. Login as an admin or a user using the provided credentials.
+
+   - To access the admin login:
+     - Username: admin
+     - Password: admin123
+
+   - For user logins, please refer to the account credentials provided by the admin.
+
+4. Explore the available functionalities based on your role.
+
+
+## Database Configuration
+
+To set up the necessary tables in MySQL for the library management system, follow these steps:
+
+1. Create a database called `lib`:
+CREATE DATABASE lib;
+2. Use the `lib` database:
+USE lib
+
+3. Execute the following series of SQL statements to create the required tables:
+
+```sql
+-- "Books" table stores information about the available books in the library.
+CREATE TABLE Books (
+    BookId INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
+    ISBN VARCHAR(255) NOT NULL,
+    Quantity INT NOT NULL
+);
+
+-- "History" table maintains a record of the book lending history.
+CREATE TABLE History (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    BookTitle VARCHAR(255) NOT NULL,
+    StudentName VARCHAR(255) NOT NULL,
+    LendingDate DATE NOT NULL,
+    ReturnDate DATE,
+    RollNumber INT NOT NULL,
+    Programme VARCHAR(255) NOT NULL,
+    Year VARCHAR(255) NOT NULL
+);
+
+-- "Students" table stores information about the students.
+CREATE TABLE Students (
+    Student VARCHAR(200),
+    Roll_no INT PRIMARY KEY,
+    Programme VARCHAR(200),
+    Year INT,
+    username VARCHAR(255),
+    password VARCHAR(255),
+    Fine INT
+);
+
+-- "Lending" table tracks the lending activity of books.
+CREATE TABLE Lending (
+    LendingId INT,
+    BookTitle VARCHAR(255),
+    LendingDate DATE,
+    ReturnDate DATE,
+    RollNumber INT,
+    FOREIGN KEY (RollNumber) REFERENCES Students(Roll_no)
+);
+```
+By setting up these tables, the library management system can efficiently store and retrieve data related to books, students, lending history, and book availability. The tables establish the necessary relationships and enable seamless management of the library's resources.
+
+
