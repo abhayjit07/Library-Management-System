@@ -59,6 +59,19 @@ The Library Management System is a Java Swing-based application that allows user
 
 A Java Swing-based library management system with a MySQL database.
 
+## Requirements
+
+To execute the project, you will need the following software installed:
+
+- MySQL Community Server: The project utilizes MySQL as the database management system. You can download and install MySQL Community Server from the official website: [MySQL Downloads](https://dev.mysql.com/downloads/)
+
+- MySQL JDBC Connector: The JDBC connector is required to establish a connection between the Java application and the MySQL database. You can download the latest version of the MySQL JDBC Connector JAR file from the official website: [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
+
+- JDK (Java Development Kit): The project is developed using Java, so you need to have JDK installed on your system. You can download and install the latest version of JDK from the Oracle website: [Java SE Downloads](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+
+Make sure to install and configure the above software properly before executing the project.
+
+
 ## Usage
 
 1. Launch the application.
@@ -134,4 +147,11 @@ CREATE TABLE Lending (
 ```
 By setting up these tables, the library management system can efficiently store and retrieve data related to books, students, lending history, and book availability. The tables establish the necessary relationships and enable seamless management of the library's resources.
 
+## Conclusion
+
+The Library Management System is a comprehensive solution for managing books, users, and lending activities in a library setting. With its user-friendly interface and robust functionality, it simplifies the process of book management, lending, and return tracking.
+
+We welcome feedback, bug reports, and contributions from the community to further enhance the system's capabilities. Together, we can continue improving the Library Management System and making it even more valuable for libraries and their patrons.
+
+Thank you for using the Library Management System. If you have any questions or need assistance, please don't hesitate to reach out.
 
