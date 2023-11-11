@@ -32,48 +32,75 @@ public class LibraryManagementSystem extends JFrame {
         adminButton = new JButton("Admin");
         userButton = new JButton("User");
         exitButton = new JButton("Exit");
+    
+        // Set consistent font for buttons
+        Font buttonFont = new Font("Arial", Font.PLAIN, 16);
+        adminButton.setFont(buttonFont);
+        userButton.setFont(buttonFont);
+        exitButton.setFont(buttonFont);
+    
+        // Use a gradient background
+        getContentPane().setBackground(new Color(37, 150, 255));
     }
-
+    
     private void addComponentsToFrame() {
         setLayout(new BorderLayout());
-
+    
         // Create and configure the welcome label
         JLabel welcomeLabel = new JLabel("Welcome to the Library Management System");
         welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
         welcomeLabel.setFont(new Font("Arial", Font.BOLD, 24));
         welcomeLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Add some padding
-
+    
         // Create a panel for the buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridBagLayout()); // Use GridBagLayout for more flexibility
-
+    
         // Configure GridBagConstraints for button positioning and spacing
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(10, 10, 10, 10); // Adjust the spacing between buttons
-
+    
         // Add the buttons to the button panel
-        gbc.gridx = -1;
+        gbc.gridx = 0;
         gbc.gridy = 0;
         buttonPanel.add(adminButton, gbc);
-
-        gbc.gridx = 1;
+    
+        gbc.gridy = 1;
         buttonPanel.add(userButton, gbc);
-
-        gbc.gridx = 2;
+    
+        gbc.gridy = 2;
         buttonPanel.add(exitButton, gbc);
+    
+         // Create a panel for the image
+         JPanel imagePanel = new JPanel();
 
-        // Add the welcome label and button panel to the frame
+        // Replace the path with your actual image path
+        ImageIcon originalIcon = new ImageIcon("");
+
+        // Resize the image
+        int width = 350;  // Adjust the desired width
+        int height = 250;  // Maintain the aspect ratio
+        Image scaledImage = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        JLabel imageLabel = new JLabel(scaledIcon);
+        imagePanel.add(imageLabel);
+    
+        // Create a JSplitPane to divide the frame into two halves
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, imagePanel, buttonPanel);
+        splitPane.setResizeWeight(0.5); // Adjust the initial size of the two halves
+    
+        // Add the welcome label and JSplitPane to the frame
         add(welcomeLabel, BorderLayout.NORTH);
-        add(buttonPanel, BorderLayout.CENTER);
-
+        add(splitPane, BorderLayout.CENTER);
+    
         // Set the default frame size
-        int frameWidth = 600;
-        int frameHeight = 300;
+        int frameWidth = 800; // Adjusted for a wider frame
+        int frameHeight = 400; // Adjusted for a taller frame
         setPreferredSize(new Dimension(frameWidth, frameHeight));
         pack(); // Resize the frame to fit the components
     }
-
     private void attachListeners() {
         adminButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
