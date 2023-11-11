@@ -57,8 +57,6 @@ The Library Management System is a Java Swing-based application that allows user
    - Admins can access advanced functionalities without cluttering the user interface.
    - Enhances security by restricting access to administrative features to authorized personnel.
 
-A Java Swing-based library management system with a MySQL database.
-
 ## Requirements
 
 To execute the project, you will need the following software installed:
